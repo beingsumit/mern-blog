@@ -10,6 +10,7 @@ import Header from "./components/Header"
 const App = () => {
   return (
     <BrowserRouter>
+    {/* header added comment */}
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>

@@ -1,7 +1,9 @@
 import express from 'express'
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import userRouter from './routes/user.route.js'
+import userRoutes from './routes/user.route.js'
+import authRoutes from './routes/auth.route.js'
+
 
 
 // we used "npm i dotenv" for importing mongodb connection 
@@ -18,9 +20,12 @@ mongoose
 
 const app = express()
 
+app.use(express.json());
+
 app.listen(3000, ()=>{
     console.log("server is running on 3000");
 })
 
-// here we write api in userRouter file and call here 
-app.use('/api/user', userRouter);
+// here we write api in userRouter file and call here
+app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
